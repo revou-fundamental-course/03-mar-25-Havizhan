@@ -3,9 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Web Havizhan Rhaiya Ardhana</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
 </head>
 <body>
-    
+
+    <!-- Modal Popup for Welcome Message -->
+    <div class="modal-overlay" id="welcome-modal-overlay">
+        <div class="welcome-modal">
+            <h2>Welcome to Our Website!</h2>
+            <p>We'd love to personalize your experience. Please enter your name below:</p>
+            <div class="name-input-container">
+                <input type="text" id="welcome-name-input" class="name-input" placeholder="Enter your name" maxlength="30">
+            </div>
+            <button id="continue-btn" class="continue-btn">Continue</button>
+            <div>
+                <a href="#" id="skip-welcome" class="skip-link">Skip for now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header Section -->
+    <header class="main-header">
+        <!-- Website Logo -->
+        <div class="main-logo">
+            <img src="img/logo.jpeg" alt="Website Logo">
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#message-us">Message Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Home Section -->
+        <section id="home">
+            <header>
+                <h1>Hi <span id="user-name">User</span>, Welcome To Website</h1>
+                <p>I'm Student at Universitas Sebelas Maret</p>
+            </header>
+
+            <!-- Image Carousel -->
+            <div class="dimensions">
+                <div class="carousel-container">
+                    <div class="carousel-slides">
+                        <div class="carousel-slide active" style="transition: transform 0.5s ease;">
+                            <img src="img/image1.jpeg" alt="Image 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="img/image2.jpeg" alt="Image 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="img/image3.jpeg" alt="Image 3">
+                        </div>
+                    </div>
+                    
+                    <!-- Carousel Navigation -->
+                    <div class="carousel-navigation">
+                        <button class="prev" onclick="showSlide(currentIndex - 1)">&#10094;</button>
+                        <button class="next" onclick="showSlide(currentIndex + 1)">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <header>
+                <h1>About FATISDA</h1>
+            </header>
+            
+            <!-- Deskripsi FATISDA -->
+            <div class="about-content">
+                <p>
+                    Program Studi Informatika FATISDA UNS adalah salah satu program studi di Fakultas Teknologi Informasi dan 
+                    Sains Data Universitas Sebelas Maret Surakarta yang berdiri sejak tanggal 29 Januari 2007 dengan nama 
+                    Program Studi Ilmu Komputer melalui SK Pendirian 163/D/T/2007. Pada tahun 2009 berganti nama menjadi 
+                    Program Studi Informatika berdasarkan pada surat perpanjangan izin operasional.
+                </p>
+            </div>
+
+            <!-- Visi-->
+            <div class="about-section">
+                <h2>Visi</h2>
+                <p>
+                    Sebagai penyelenggara pendidikan bidang Informatika yang berkualitas dan mampu bersaing di tingkat 
+                    internasional.
+                </p>
+            </div>
+
+            <!-- Misi -->
+            <div class="about-section">
+                <h2>Misi</h2>
+                <ul>
+                    <li>Menyelenggarakan kegiatan pendidikan dan pengajaran yang terencana, terarah, dan berkelanjutan.</li>
+                    <li>Melakukan kajian dan penelitian di bidang Informatika yang bermanfaat dan meningkatkan daya saing bangsa.</li>
+                    <li>Melaksanakan pengabdian pada masyarakat sesuai dengan kompetensi dalam bidang Informatika.</li>
+                </ul>
+            </div>
+
+            <!-- Tujuan -->
+            <div class="about-section">
+                <h2>Tujuan</h2>
+                <ul>
+                    <li>Dihasilkannya sarjana Informatika yang berkarakter, profesional, dan mandiri.</li>
+                    <li>Dihasilkannya produk kajian dan penelitian pada bidang Informatika yang dapat berguna dan berdaya saing.</li>
+                    <li>Diterapkannya hasil kajian dan penelitian untuk membantu meningkatkan kualitas kehidupan masyarakat.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Message Us Section -->
+        <section id="message-us">
+            <h1>Message Us</h1>
+
+            <!-- Display Current Time -->
+            <div id="current-time">Current time: <span id="time"></span></div>
+
+            <div class="message-container">
+                <form class="message-form">
+                    
+                    <!-- Input Field for Name -->
+                    <div class="form-group">
+                        <label for="name">Nama:</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+
+                    <!-- Input Field for Email -->
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+
+                    <!-- Input Field for Phone Number -->
+                    <div class="form-group">
+                        <label for="phone">Nomor Telepon:</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+
+                    <!-- Input Field for Message -->
+                    <div class="form-group">
+                        <label for="message">Pesan:</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="button" class="submit-btn" onclick="submitMessage()">Submit</button>
+                </form>
+
+                <!-- Message History Display -->
+                <div class="message-display" id="message-display">
+                    <p>Riwayat Pesan.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <p>© 2025 Havizhan Rhaiya Ardhana</p>
+
+        <!-- Social Media Links -->
+        <div class="social-media">
+            <a href="http://github.com/Havizhan" target="_blank">Github</a>
+            <a href="https://www.linkedin.com/in/havizhan-rhaiya-ardhana-931179296" target="_blank">LinkedIn</a>
+            <a href="https://www.instagram.com/havizhanrhaiya" target="_blank">Instagram</a>
+        </div>
+    </footer>
+
 </body>
 </html>
